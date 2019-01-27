@@ -27,6 +27,12 @@
                 <td>List of message handlers</td>
             </tr>
             <tr>
+                <td>welcome_message</td>
+                <td>Array of String</td>
+                <td>yes</td>
+                <td>List of messages to send when an user joins a chat, randomly chosen, 1-4096 characters. The following tags are currently supported: &lt;b&gt;bold&lt;/b&gt;, &lt;strong&gt;bold&lt;/strong&gt;, &lt;i&gt;italic&lt;/i&gt;, &lt;em&gt;italic&lt;/em&gt;, &lt;a href="http://www.example.com/"&gt;inline URL&lt;/a&gt;, &lt;a href="tg://user?id=123456789"&gt;inline mention of a user&lt;/a&gt;, &lt;code&gt;inline fixed-width code&lt;/code&gt;, &lt;pre&gt;pre-formatted fixed-width code block&lt;/pre&gt;. Use <code>{0}</code> to mention the new chat member.</td>
+            </tr>
+            <tr>
                 <td>on_callback</td>
                 <td>Array of <a href="Callback Handler.html">Callback Handler</a></td>
                 <td>yes</td>
