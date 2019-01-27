@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ManyMex - docs</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="markdown-body">
+    <h1>Force Reply</h1>
+    Upon receiving a message with this object, Telegram clients will display a reply interface to the user (act as if the user has selected the bot‘s message and tapped ’Reply').
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Optional</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>force_reply</td>
+                <td>True</td>
+                <td>no</td>
+                <td>Shows a reply interface to the user, as if they manually selected the bot‘s message and tapped ’Reply'</td>
+            </tr>
+            <tr>
+                <td>selective</td>
+                <td>Boolean</td>
+                <td>yes</td>
+                <td>Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply, sender of the original message</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ManyMex - docs</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="markdown-body">
+    <h1>Message</h1>
+    Message to send.
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Optional</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>text</td>
+                <td>Array of String</td>
+                <td>yes</td>
+                <td>List of texts of the message to send, randomly chosen, 1-4096 characters. The following tags are currently supported: &lt;b&gt;bold&lt;/b&gt;, &lt;strong&gt;bold&lt;/strong&gt;, &lt;i&gt;italic&lt;/i&gt;, &lt;em&gt;italic&lt;/em&gt;, &lt;a href="http://www.example.com/"&gt;inline URL&lt;/a&gt;, &lt;a href="tg://user?id=123456789"&gt;inline mention of a user&lt;/a&gt;, &lt;code&gt;inline fixed-width code&lt;/code&gt;, &lt;pre&gt;pre-formatted fixed-width code block&lt;/pre&gt;</td>
+            </tr>
+            <tr>
+                <td>files</td>
+                <td>Array of String</td>
+                <td>yes</td>
+                <td>List of paths to file to send, randomly chosen</td>
+            </tr>
+            <tr>
+                <td>send_as_reply</td>
+                <td>Boolean</td>
+                <td>yes</td>
+                <td>If <code>true</code> this message will be a reply to the handled message</td>
+            </tr>
+            <tr>
+                <td>reply_markup</td>
+                <td>
+                    <a href="Inline Keyboard.html">Inline Keyboard</a> or <br>
+                    <a href="Reply Keyboard.html">Reply Keyboard</a> or <br>
+                    <a href="Remove Reply Keyboard.html">Remove Reply Keyboard</a> or <br>
+                    <a href="Force Reply.html">Force Reply</a>
+                </td>
+                <td>yes</td>
+                <td>Additional interface options</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ManyMex - docs</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="markdown-body">
+    <h1>Inline Keyboard Button</h1>
+    This object represents one button of an inline keyboard. You <b>must</b> use exactly one of the optional fields.
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Optional</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>text</td>
+                <td>String</td>
+                <td>no</td>
+                <td>Label text on the button</td>
+            </tr>
+            <tr>
+                <td>url</td>
+                <td>String</td>
+                <td>yes</td>
+                <td>HTTP or tg:// url to be opened when button is pressed</td>
+            </tr>
+            <tr>
+                <td>callback_data</td>
+                <td>String</td>
+                <td>yes</td>
+                <td>Data to be sent in a callback query to the bot when button is pressed, 1-64 bytes</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ManyMex - docs</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="markdown-body">
+    <h1>Keyboard Button</h1>
+    This object represents one button of the reply keyboard.
+    <p>For simple text buttons String can be used instead of this object to specify text of the button.</p>
+    <p>Optional fields are mutually exclusive.</p>
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Optional</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>text</td>
+                <td>String</td>
+                <td>no</td>
+                <td>Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed</td>
+            </tr>
+            <tr>
+                <td>request_contact</td>
+                <td>Boolean</td>
+                <td>yes</td>
+                <td>If <code>true</code>, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only</td>
+            </tr>
+            <tr>
+                <td>request_location</td>
+                <td>Boolean</td>
+                <td>yes</td>
+                <td>If <code>true</code>, the user's current location will be sent when the button is pressed. Available in private chats only</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

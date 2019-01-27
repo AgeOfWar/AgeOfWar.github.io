@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ManyMex - docs</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="markdown-body">
+    <h1>Contact Message Content</h1>
+    Represents the content of a contact message to be sent as the result of an inline query.
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Optional</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>phone_number</td>
+                <td>String</td>
+                <td>No</td>
+                <td>Contact's phone number</td>
+            </tr>
+            <tr>
+                <td>first_name</td>
+                <td>String</td>
+                <td>No</td>
+                <td>Contact's first name</td>
+            </tr>
+            <tr>
+                <td>last_name</td>
+                <td>String</td>
+                <td>Yes</td>
+                <td>Contact's last name</td>
+            </tr>
+            <tr>
+                <td>vcard</td>
+                <td>String</td>
+                <td>Yes</td>
+                <td>Additional data about the contact in the form of a vCard, 0-2048 bytes</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

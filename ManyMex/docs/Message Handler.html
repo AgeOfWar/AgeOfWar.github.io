@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ManyMex - docs</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="markdown-body">
+    <h1>Message Handler</h1>
+    Handles messages that contains the specified text.
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Optional</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>trigger</td>
+                <td>String</td>
+                <td>no</td>
+                <td>Message which text matches this <a href="https://en.wikipedia.org/wiki/Regular_expression">Regex</a> will be handled by this handler</td>
+            </tr>
+            <tr>
+                <td>whitelist</td>
+                <td>Array of Number</td>
+                <td>yes</td>
+                <td>List of sender id which message will be handled</td>
+            </tr>
+            <tr>
+                <td>blacklist</td>
+                <td>Array of Number</td>
+                <td>yes</td>
+                <td>List of sender id which message will not be handled</td>
+            </tr>
+            <tr>
+                <td>message</td>
+                <td><a href="Message.html">Message</a></td>
+                <td>no</td>
+                <td>Message to send</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

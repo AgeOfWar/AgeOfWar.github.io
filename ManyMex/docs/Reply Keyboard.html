@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ManyMex - docs</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="markdown-body">
+    <h1>Reply Keyboard</h1>
+    This object represents a custom keyboard with reply options.
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Optional</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>keyboard</td>
+                <td>Array of Array of <a href="Keyboard Button.html">Keyboard Button</a></td>
+                <td>no</td>
+                <td>Array of button rows, each represented by an Array of <a href="Keyboard Button.html">Keyboard Button</a> objects</td>
+            </tr>
+            <tr>
+                <td>resize_keyboard</td>
+                <td>Boolean</td>
+                <td>yes</td>
+                <td>Requests clients to resize the keyboard vertically for optimal fit  (e.g., make the keyboard smaller if there are just two rows of buttons).  Defaults to false, in which case the custom keyboard is always of the same height as the app's standard keyboard.</td>
+            </tr>
+            <tr>
+                <td>one_time_keyboard</td>
+                <td>Boolean</td>
+                <td>yes</td>
+                <td>Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display  the usual letter-keyboard in the chat – the user can press a special button in the input field to see the custom keyboard again. Defaults to <code>false</code></td>
+            </tr>
+            <tr>
+                <td>selective</td>
+                <td>Boolean</td>
+                <td>yes</td>
+                <td>Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply, sender of the original message.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

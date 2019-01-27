@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ManyMex - docs</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="markdown-body">
+    <h1>Inline Handler</h1>
+    Handles inline queries that contains the specified query.
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Optional</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>trigger</td>
+                <td>String</td>
+                <td>no</td>
+                <td>Inline query which text matches this <a href="https://en.wikipedia.org/wiki/Regular_expression">Regex</a> will be handled by this handler</td>
+            </tr>
+            <tr>
+                <td>whitelist</td>
+                <td>Array of Number</td>
+                <td>yes</td>
+                <td>List of sender id which inline query will be handled</td>
+            </tr>
+            <tr>
+                <td>blacklist</td>
+                <td>Array of Number</td>
+                <td>yes</td>
+                <td>List of sender id which inline query will not be handled</td>
+            </tr>
+            <tr>
+                <td>results</td>
+                <td>Array of <a href="Inline Result.html">Inline Result</a></td>
+                <td>no</td>
+                <td>List of results to show</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

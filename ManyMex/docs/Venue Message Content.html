@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ManyMex - docs</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="markdown-body">
+    <h1>Venue Message Content</h1>
+    Represents the content of a venue message to be sent as the result of an inline query.
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Optional</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>latitude</td>
+                <td>Float</td>
+                <td>No</td>
+                <td>Latitude of the venue in degrees</td>
+            </tr>
+            <tr>
+                <td>longitude</td>
+                <td>Float</td>
+                <td>No</td>
+                <td>Longitude of the venue in degrees</td>
+            </tr>
+            <tr>
+                <td>title</td>
+                <td>String</td>
+                <td>No</td>
+                <td>Name of the venue</td>
+            </tr>
+            <tr>
+                <td>address</td>
+                <td>String</td>
+                <td>No</td>
+                <td>Address of the venue</td>
+            </tr>
+            <tr>
+                <td>foursquare_id</td>
+                <td>String</td>
+                <td>Yes</td>
+                <td>Foursquare identifier of the venue, if known</td>
+            </tr>
+            <tr>
+                <td>foursquare_type</td>
+                <td>String</td>
+                <td>Yes</td>
+                <td>Foursquare type of the venue, if known. (For example, "arts_entertainment/default", "arts_entertainment/aquarium" or "food/icecream".)</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
