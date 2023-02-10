@@ -2,25 +2,70 @@
 <html>
   <head>
     <title>AgeOfWar - Esame Reti I</title>
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
   </head>
   <body>
-    <p>Si consideri il trasferimento di un
-      file di grandi dimensioni L = 32
-      MBytes dall'host A all'host B. Si
-      assuma di avere un Maximum
-      Segment Size MSS = 1120 bytes.
-      Si supponga inoltre che
-      l'intestazione TCP occupi 24 bytes.
-      Quanti segmenti vengono inviati
-      dall'host A per trasferire tutto il
-      file?</p>
-    <div>
-      <label>L (MBytes)</label>
-      <input type="number">
+    <div style="border: 1px solid black;">
+      <p>Con riferimento all’indirizzamento IP di
+         tipo classless (senza classi) si consideri
+         l’arco di indirizzi IP da 130.192.156.0 a 130.192.157.255.<br>
+         a) Scrivere sia in notazione  slash il blocco CIDR più piccolo in grado di contenere tale arco<br>
+         b) Suddividere l’arco di indirizzi in 8 sottoreti (che chiameremo nell’ordine sub1, sub2, ...,
+sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 sottoreti ottenute</p>
+      <div>
+        <label>Range IP</label>
+        <input id="ip1" type="text"> - <input id="ip2" type="text">
+      </div>
+      <div>
+        <label>Blocco CID più piccolo</label>
+        <input id="blocco" type="text" readonly>
+      </div>
     </div>
-    <div>
-      <label>MSS (bytes)</label>
-      <input type="number">
+    <div style="border: 1px solid black;">
+      <p>Si consideri il trasferimento di un
+        file di grandi dimensioni L = 32
+        MBytes dall'host A all'host B. Si
+        assuma di avere un Maximum
+        Segment Size MSS = 1120 bytes.
+        Si supponga inoltre che
+        l'intestazione TCP occupi 24 bytes.
+        Quanti segmenti vengono inviati
+        dall'host A per trasferire tutto il
+        file?</p>
+      <div>
+        <label>L (MBytes)</label>
+        <input id="L" type="number">
+      </div>
+      <div>
+        <label>MSS (bytes)</label>
+        <input id="MSS" type="number">
+      </div>
+      <div>
+        <label>numero segmenti inviati</label>
+        <input id="n_seg" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Un nodo su Ethernet a v = 10
+        Mbit/s, dopo aver subito
+        molteplici collisioni, estrae il
+        valore K = 10. Dopo quanto
+        tempo, in microsecondi,
+        proverà a ritrasmettere sul
+        canale?</p>
+      <div>
+        <label>v (MBit/s)</label>
+        <input id="v" type="number">
+      </div>
+      <div>
+        <label>K</label>
+        <input id="K" type="number">
+      </div>
+      <div>
+        <label>tempo per ritrasmettere (µs)</label>
+        <input id="t5" type="number" readonly>
+      </div>
     </div>
   </body>
 </html>
