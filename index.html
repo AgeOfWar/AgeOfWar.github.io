@@ -25,9 +25,7 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         <label>suddivisione in sottoreti</label>
         <input id="suddivisione" type="number">
       </div>
-      <div id="sottoreti" style="border: 1px solid black;">
-
-      </div>
+      <div id="sottoreti" style="border: 1px solid black;"></div>
       <div>
         <label>host indirizzabili</label>
         <input id="hostind" type="number" readonly>
@@ -322,6 +320,21 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
           <label>massima dimensione finestra</label>
           <input id="es16" type="number" readonly>
         </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Un nodo riceve la sequenza di bit 1001110110 protetta da un codice CRC con generatore G=10010. Quali bit di dati vengono consegnati al livello superiore?</p>
+      <div>
+        <label>sequenza</label>
+        <input id="CRCseq" type="number">
+      </div>
+      <div>
+        <label>G</label>
+        <input id="G" type="number">
+      </div>
+      <div>
+        <label>dati livello superiore</label>
+        <input id="senzaCRC" type="number" readonly>
+      </div>
     </div>
   </body>
 </html>

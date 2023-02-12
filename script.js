@@ -252,6 +252,22 @@ onDocumentReady(function() {
         es16.value = Math.floor(L16.value / 2)
     }
 
+    //
+
+    let CRCseq = document.getElementById("CRCseq")
+    let G = document.getElementById("G")
+    let senzaCRC = document.getElementById("senzaCRC")
+
+    CRCseq.oninput = () => calcola_senzaCRC()
+    G.oninput = () => calcola_senzaCRC()
+
+
+    function calcola_senzaCRC() {
+        if (!CRCseq.value || !G.value) return
+        let crc = CRCseq.value.toString()
+        senzaCRC.value = crc.substring(0, crc.length - G.value.toString().length + 1)
+    }
+
 })
 
 function iptoint(ip) {
