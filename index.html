@@ -21,6 +21,14 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         <label>Blocco CID più piccolo</label>
         <input id="blocco" type="text" readonly>
       </div>
+      <div>
+        <label>suddivisione in sottoreti</label>
+        <input id="suddivisione" type="number">
+      </div>
+      <div>
+        <label>host indirizzabili</label>
+        <input id="hostind" type="number" readonly>
+      </div>
     </div>
     <div style="border: 1px solid black;">
       <p>Si consideri il trasferimento di un
@@ -222,6 +230,14 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         Quanti RTT ci vogliono
         per incrementare cwnd da 3
         MSS a 7 MSS? <b>4</b></p>
+      <div>
+        <label>RTTs</label>
+        <input id="RTTs" type="number">
+      </div>
+      <div>
+        <label>throughput medio</label>
+        <input id="RTTsthrogmedio" type="number" readonly>
+      </div>
     </div>
     <div style="border: 1px solid black;">
       <p>In una rete Ethernet a 10 Mbit/s, il ritardo di propagazione tra due nodi A e B,
@@ -247,6 +263,40 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         Calcolare il tempo totale di distribuzione
         del file a 73 peers utilizzando una
         applicazione client-server/peer to peer.</p>
+        <div>
+          <label>F (Gbytes)</label>
+          <input id="F" type="number">
+        </div>
+        <div>
+          <label>N</label>
+          <input id="peers" type="number">
+        </div>
+        <div>
+          <label>us (Mbps)</label>
+          <input id="us" type="number">
+        </div>
+        <div>
+          <label>di (Mbps)</label>
+          <input id="di" type="number">
+        </div>
+        <div>
+          <label>ui (Mbps)</label>
+          <input id="ui" type="number">
+        </div>
+        <div>
+          <label>tempo di distribuzione <em>client-server</em> (secondi)</label>
+          <input id="tdistcs" type="number" readonly>
+        </div>
+        <div>
+          <label>tempo di distribuzione <em>perr to peer</em> (secondi)</label>
+          <input id="tdistpp" type="number" readonly>
+        </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si consideri il protocollo GBN con
+        una finestra mittente di 3 elementi. Si
+        supponga che all’istante t il prossimo
+        segmento in ordine ha numero k=45.</p>
         <div>
           <label>F (Gbytes)</label>
           <input id="F" type="number">

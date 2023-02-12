@@ -2,9 +2,17 @@ onDocumentReady(function() {
     let ip1 = document.getElementById("ip1")
     let ip2 = document.getElementById("ip2")
     let blocco = document.getElementById("blocco")
+    let suddivisione = document.getElementById("suddivisione")
+    let hostind = document.getElementById("hostind")
 
-    ip1.oninput = () => calcola_blocco()
-    ip2.oninput = () => calcola_blocco()
+    ip1.oninput = () => calcola_bloccohostind()
+    ip2.oninput = () => calcola_bloccohostind()
+    suddivisione.oninput = () => calcola_hostind()
+
+    function calcola_bloccohostind() {
+        calcola_blocco()
+        calcola_hostind()
+    }
 
     function calcola_blocco() {
         let ip1_i = iptoint(ip1.value)
@@ -17,6 +25,19 @@ onDocumentReady(function() {
             k++;
         }
         blocco.value = inttoip(ip1_i >> k << k) + "/" + (32 - k)
+    }
+
+    function calcola_hostind() {
+        let ip1_i = iptoint(ip1.value)
+        let ip2_i = iptoint(ip2.value)
+        if (!ip1_i || !ip2_i || !suddivisione.value) return
+        let z = ip1_i ^ ip2_i
+        let k = 0
+        while (z) {
+            z >>= 1;
+            k++;
+        }
+        hostind.value = Math.pow(2, k - Math.log2(suddivisione.value))
     }
 
     //
@@ -156,6 +177,19 @@ onDocumentReady(function() {
 
     //
 
+    let RTTs = document.getElementById("RTTs")
+    let RTTsthrogmedio = document.getElementById("RTTsthrogmedio")
+
+    RTTs.oninput = () => calcola_RTTsthrogmedio()
+
+    function calcola_RTTsthrogmedio() {
+        if (!RTTs.value) return
+        console.log(RTTs.value)
+        RTTsthrogmedio.value = (RTTs.value + 1) / 2
+    }
+
+    //
+
     let RTT12 = document.getElementById("RTT12")
     let RTTcasopeggiore = document.getElementById("RTTcasopeggiore")
 
@@ -184,8 +218,9 @@ onDocumentReady(function() {
 
     function calcola_tdist() {
         if (!F.value || !peers.value || !us.value || !di.value || !ui.value) return
-        tdistcs.value = Math.max(peers.value * F.value / us.value, F.value / di.value)
-        tdistpp.value = Math.max(F.value / us.value, F.value * di.value, peers.value * F.value / (us.value + peers.value * ui.value))
+        let FF = F.value * 8000
+        tdistcs.value = Math.max(peers.value * FF / us.value, FF / di.value)
+        tdistpp.value = Math.max(FF / us.value, FF * di.value, peers.value * FF / (us.value + peers.value * ui.value))
     }
 })
 
