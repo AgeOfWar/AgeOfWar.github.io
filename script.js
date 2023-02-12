@@ -184,8 +184,7 @@ onDocumentReady(function() {
 
     function calcola_RTTsthrogmedio() {
         if (!RTTs.value) return
-        console.log(RTTs.value)
-        RTTsthrogmedio.value = (RTTs.value + 1) / 2
+        RTTsthrogmedio.value = (parseInt(RTTs.value) + 1) / 2
     }
 
     //
