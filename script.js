@@ -221,6 +221,21 @@ onDocumentReady(function() {
         tdistcs.value = Math.max(peers.value * FF / us.value, FF / di.value)
         tdistpp.value = Math.max(FF / us.value, FF * di.value, peers.value * FF / (us.value + peers.value * ui.value))
     }
+
+    //
+
+    //
+
+    let L16 = document.getElementById("L16")
+    let es16 = document.getElementById("es16")
+
+    L16.oninput = () => calcola_es16()
+
+    function calcola_es16() {
+        if (!L16.value) return
+        es16.value = Math.floor(L16.value / 2)
+    }
+
 })
 
 function iptoint(ip) {

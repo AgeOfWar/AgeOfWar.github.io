@@ -296,34 +296,28 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
       <p>Si consideri il protocollo GBN con
         una finestra mittente di 3 elementi. Si
         supponga che all’istante t il prossimo
-        segmento in ordine ha numero k=45.</p>
+        segmento in ordine ha numero k=45.<br>
+        Prendere tutti i valori disponibili
+        in cui figura k, possibilmente in
+        ordine.</p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si consideri il protocollo GBN. Si
+        supponga che o spazio dei numeri di
+        sequenza dei segmenti sia L = 127.
+        Quale è la massima dimensione
+        della finestra del mittente (in
+        numero di segmenti) per evitare che
+        si presenti il problema della
+        sovrapposizione dei segmenti lato
+        ricevente?</p>
         <div>
-          <label>F (Gbytes)</label>
-          <input id="F" type="number">
+          <label>L</label>
+          <input id="L16" type="number">
         </div>
         <div>
-          <label>N</label>
-          <input id="peers" type="number">
-        </div>
-        <div>
-          <label>us (Mbps)</label>
-          <input id="us" type="number">
-        </div>
-        <div>
-          <label>di (Mbps)</label>
-          <input id="di" type="number">
-        </div>
-        <div>
-          <label>ui (Mbps)</label>
-          <input id="ui" type="number">
-        </div>
-        <div>
-          <label>tempo di distribuzione <em>client-server</em> (secondi)</label>
-          <input id="tdistcs" type="number" readonly>
-        </div>
-        <div>
-          <label>tempo di distribuzione <em>perr to peer</em> (secondi)</label>
-          <input id="tdistpp" type="number" readonly>
+          <label>massima dimensione finestra</label>
+          <input id="es16" type="number" readonly>
         </div>
     </div>
   </body>
