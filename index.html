@@ -153,5 +153,89 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         <input id="offset" type="number" readonly>
       </div>
     </div>
+    <div style="border: 1px solid black;">
+      <p>Sia data una rete con N = 2 nodi che
+        comunicano usando Slotted Aloha. Ogni
+        nodo ha probabilità p = 0.97 di
+        trasmettere uno slot.
+        Calcolare la probabilità che un nodo
+        qualsiasi/specifico abbia successo.</p>
+      <div>
+        <label>N</label>
+        <input id="alohaN" type="number">
+      </div>
+      <div>
+        <label>p</label>
+        <input id="alohap" type="number">
+      </div>
+      <div>
+        <label>probabilità che un nodo <em>specifico</em> abbia successo</label>
+        <input id="alohapspecific" type="number" readonly>
+      </div>
+      <div>
+        <label>probabilità che un nodo <em>qualsiasi</em> abbia successo</label>
+        <input id="alohapq" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si consideri il trasferimento di un file
+        di grandi dimensioni L = 50 MBytes
+        dall'host A all'host B. Si assuma di
+        avere un Maximum Segment Size
+        MSS = 262 bytes. Si supponga
+        inoltre che l'intestazione
+        TCP+IP+Ethernet occupi hdr= 66
+        bytes. Quanti secondi ci vogliono
+        per trasferire tutto il file su un
+        collegamento a S = 80 Mbps?</p>
+      <div>
+        <label>L (MBytes)</label>
+        <input id="hdrL" type="number">
+      </div>
+      <div>
+        <label>MSS (bytes)</label>
+        <input id="hdrMSS" type="number">
+      </div>
+      <div>
+        <label>hdr (bytes)</label>
+        <input id="hdr" type="number">
+      </div>
+      <div>
+        <label>S (Mbps)</label>
+        <input id="hdrS" type="number">
+      </div>
+      <div>
+        <label>tempo trasferimento (secondi)</label>
+        <input id="hdrtransf" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si consideri l’invio di un file di
+        grandi dimensioni ad un host
+        su una connessione TCP con
+        cwnd = 1 come valore iniziale
+        e viene incrementato di 1
+        MSS ogni RTT ricevuto.<br>
+        Qual è il throughput
+        medio dall’inizio fino al
+        tempo 5 RTTs? <b>3</b><br>
+        Quanti RTT ci vogliono
+        per incrementare cwnd da 3
+        MSS a 7 MSS? <b>4</b></p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>In una rete Ethernet a 10 Mbit/s, il ritardo di propagazione tra due nodi A e B,
+        espresso in tempi di bit, è pari a RTT = 621. Nel caso peggiore, dopo quanto tempo
+        (espresso in tempi di bit), dopo aver cominciato a trasmettere, il nodo A si accorge
+        di avere colliso col nodo B?</p>
+      <div>
+        <label>RTT (tempi di bit)</label>
+        <input id="RTT12" type="number">
+      </div>
+      <div>
+        <label>caso peggiore (tempi di bit)</label>
+        <input id="RTTcasopeggiore" type="number" readonly>
+      </div>
+    </div>
   </body>
 </html>

@@ -117,6 +117,54 @@ onDocumentReady(function() {
         if (!MTU.value || !nfram.value) return
         offset.value = (parseInt(MTU.value) * (nfram.value - 1) - 20 * (nfram.value - 1)) / 8
     }
+
+    //
+
+    let alohaN = document.getElementById("alohaN")
+    let alohap = document.getElementById("alohap")
+    let alohapspecific = document.getElementById("alohapspecific")
+    let alohapq = document.getElementById("alohapq")
+
+    alohaN.oninput = () => calcola_alohapqs()
+    alohap.oninput = () => calcola_alohapqs()
+
+    function calcola_alohapqs() {
+        if (!alohaN.value || !alohap.value) return
+        alohapspecific.value = Math.round(alohap.value * Math.pow(1 - alohap.value, alohaN.value - 1) * 100000) / 100000
+        alohapq.value = alohaN.value * alohapspecific.value
+    }
+
+    //
+
+    let hdrL = document.getElementById("hdrL")
+    let hdrMSS = document.getElementById("hdrMSS")
+    let hdr = document.getElementById("hdr")
+    let hdrS = document.getElementById("hdrS")
+    let hdrtransf = document.getElementById("hdrtransf")
+
+    hdrL.oninput = () => calcola_hdrtransf()
+    hdrMSS.oninput = () => calcola_hdrtransf()
+    hdr.oninput = () => calcola_hdrtransf()
+    hdrS.oninput = () => calcola_hdrtransf()
+
+    function calcola_hdrtransf() {
+        if (!hdrL.value || !hdrMSS.value || !hdr.value || !hdrS.value) return
+        let pacchetti = hdrL.value * Math.pow(2, 20) / hdrMSS.value
+        let ltot = (pacchetti * hdr.value) + hdrL.value * Math.pow(2, 20)
+        hdrtransf.value = ltot * 8 / (hdrS.value * 1000000)
+    }
+
+    //
+
+    let RTT12 = document.getElementById("RTT12")
+    let RTTcasopeggiore = document.getElementById("RTTcasopeggiore")
+
+    RTT12.oninput = () => calcola_RTTcasopeggiore()
+
+    function calcola_RTTcasopeggiore() {
+        if (!RTT12.value) return
+        RTTcasopeggiore.value = RTT12.value * 2 - 1
+    }
 })
 
 function iptoint(ip) {
