@@ -219,7 +219,7 @@ onDocumentReady(function() {
         if (!F.value || !peers.value || !us.value || !di.value || !ui.value) return
         let FF = F.value * 8000
         tdistcs.value = Math.max(peers.value * FF / us.value, FF / di.value)
-        tdistpp.value = Math.max(FF / us.value, FF * di.value, peers.value * FF / (us.value + peers.value * ui.value))
+        tdistpp.value = Math.round(Math.max(FF / us.value, FF / di.value, peers.value * FF / (parseInt(us.value) + parseInt(peers.value) * ui.value)) * 100) / 100
     }
 
     //
