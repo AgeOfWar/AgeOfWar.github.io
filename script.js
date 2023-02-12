@@ -165,6 +165,28 @@ onDocumentReady(function() {
         if (!RTT12.value) return
         RTTcasopeggiore.value = RTT12.value * 2 - 1
     }
+
+    //
+
+    let F = document.getElementById("F")
+    let peers = document.getElementById("peers")
+    let us = document.getElementById("us")
+    let di = document.getElementById("di")
+    let ui = document.getElementById("ui")
+    let tdistcs = document.getElementById("tdistcs")
+    let tdistpp = document.getElementById("tdistpp")
+
+    F.oninput = () => calcola_tdist()
+    peers.oninput = () => calcola_tdist()
+    us.oninput = () => calcola_tdist()
+    di.oninput = () => calcola_tdist()
+    ui.oninput = () => calcola_tdist()
+
+    function calcola_tdist() {
+        if (!F.value || !peers.value || !us.value || !di.value || !ui.value) return
+        tdistcs.value = Math.max(peers.value * F.value / us.value, F.value / di.value)
+        tdistpp.value = Math.max(F.value / us.value, F.value * di.value, peers.value * F.value / (us.value + peers.value * ui.value))
+    }
 })
 
 function iptoint(ip) {
