@@ -237,5 +237,44 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         <input id="RTTcasopeggiore" type="number" readonly>
       </div>
     </div>
+    <div style="border: 1px solid black;">
+      <p>Si supponga di voler distribuire un file di F
+        = 99 GBytes a N = 73 peers. Il server su
+        cui risiede il file ha una capacità di upload
+        us = 396 Mbps, e ogni peer ha una
+        capacita di download di = 99 Mbps e una
+        capacità di upload ui = 12,375 Mbps.<br>
+        Calcolare il tempo totale di distribuzione
+        del file a 73 peers utilizzando una
+        applicazione client-server/peer to peer.</p>
+        <div>
+          <label>F (Gbytes)</label>
+          <input id="F" type="number">
+        </div>
+        <div>
+          <label>N</label>
+          <input id="peers" type="number">
+        </div>
+        <div>
+          <label>us (Mbps)</label>
+          <input id="us" type="number">
+        </div>
+        <div>
+          <label>di (Mbps)</label>
+          <input id="di" type="number">
+        </div>
+        <div>
+          <label>ui (Mbps)</label>
+          <input id="ui" type="number">
+        </div>
+        <div>
+          <label>tempo di distribuzione <em>client-server</em> (secondi)</label>
+          <input id="tdistcs" type="number" readonly>
+        </div>
+        <div>
+          <label>tempo di distribuzione <em>perr to peer</em> (secondi)</label>
+          <input id="tdistpp" type="number" readonly>
+        </div>
+    </div>
   </body>
 </html>
