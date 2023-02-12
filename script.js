@@ -4,6 +4,7 @@ onDocumentReady(function() {
     let blocco = document.getElementById("blocco")
     let suddivisione = document.getElementById("suddivisione")
     let hostind = document.getElementById("hostind")
+    let sottoreti = document.getElementById("sottoreti")
 
     ip1.oninput = () => calcola_bloccohostind()
     ip2.oninput = () => calcola_bloccohostind()
@@ -37,7 +38,22 @@ onDocumentReady(function() {
             z >>= 1;
             k++;
         }
-        hostind.value = Math.pow(2, k - Math.log2(suddivisione.value))
+
+        let bitsottoreti = Math.ceil(Math.log2(suddivisione.value))
+        hostind.value = Math.pow(2, k - bitsottoreti)
+
+        let base = ip1_i >> k << k
+        let result = []
+        for (let i = 0; i < suddivisione.value; i++) {
+            let input = document.createElement("input")
+            input.readOnly = true
+            input.value = inttoip(base) + "/" + (32 - k + bitsottoreti)
+            base += parseInt(hostind.value)
+            result.push(input)
+            if (i != suddivisione.value - 1) result.push(document.createElement("br"))
+        }
+        sottoreti.replaceChildren(...result)
+
     }
 
     //
