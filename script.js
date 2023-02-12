@@ -46,6 +46,77 @@ onDocumentReady(function() {
         if (!v.value || !K.value) return
         t5.value = ((K.value * 512) + 96) / v.value
     }
+
+    //
+    
+    let codicecdma1 = document.getElementById("codicecdma1")
+    let codicecdma2 = document.getElementById("codicecdma2")
+    let daticdma1 = document.getElementById("daticdma1")
+    let daticdma2 = document.getElementById("daticdma2")
+    let cdma = document.getElementById("cdma")
+
+    codicecdma1.oninput = () => calcola_cdma()
+    codicecdma2.oninput = () => calcola_cdma()
+    daticdma1.oninput = () => calcola_cdma()
+    daticdma2.oninput = () => calcola_cdma()
+
+    function calcola_cdma() {
+        if (!codicecdma1.value || !codicecdma2.value || !daticdma1.value || !daticdma2.value) return;
+        let codice1 = codicecdma1.value.replace(/^\(|\)$/, "").split(/, */).map(b => parseInt(b))
+        let codice2 = codicecdma2.value.replace(/^\(|\)$/, "").split(/, */).map(b => parseInt(b))
+        let dati1 = daticdma1.value.replace(/^\(|\)$/, "").split(/, */).map(b => parseInt(b))
+        let dati2 = daticdma2.value.replace(/^\(|\)$/, "").split(/, */).map(b => parseInt(b))
+        let cdma1 = dati1.flatMap(bit => bit ? codice1 : codice1.map(b => -b))
+        let cdma2 = dati2.flatMap(bit => bit ? codice2 : codice2.map(b => -b))
+        console.log(codice1)
+        console.log(codice2)
+        console.log(dati1)
+        console.log(dati2)
+        cdma.value = cdma1.map((e, i) => e + cdma2[i]).join(", ")
+    }
+
+    //
+
+    let n1 = document.getElementById("n1")
+    let n2 = document.getElementById("n2")
+    let n1n2 = document.getElementById("n1n2")
+
+    n1.oninput = () => calcola_n1n2()
+    n2.oninput = () => calcola_n1n2()
+
+    function calcola_n1n2() {
+        if (!n1.value || !n2.value) return
+        n1n2.value = n2.value - n1.value
+    }
+
+    //
+
+    let ncollisione = document.getElementById("ncollisione")
+    let k = document.getElementById("k")
+    let pk = document.getElementById("pk")
+
+    ncollisione.oninput = () => calcola_pk()
+    k.oninput = () => calcola_pk()
+
+    function calcola_pk() {
+        if (!ncollisione.value || !k.value) return
+        if (k.value < 0 || k.value >= (1 << ncollisione.value)) pk.value = 0
+        else pk.value = 1 / (1 << ncollisione.value)
+    }
+
+    //
+
+    let MTU = document.getElementById("MTU")
+    let nfram = document.getElementById("nfram")
+    let offset = document.getElementById("offset")
+
+    MTU.oninput = () => calcola_offset()
+    nfram.oninput = () => calcola_offset()
+
+    function calcola_offset() {
+        if (!MTU.value || !nfram.value) return
+        offset.value = (parseInt(MTU.value) * (nfram.value - 1) - 20 * (nfram.value - 1)) / 8
+    }
 })
 
 function iptoint(ip) {

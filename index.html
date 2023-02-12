@@ -47,6 +47,26 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
       </div>
     </div>
     <div style="border: 1px solid black;">
+      <p>Un trasmettitore CDMA con codice
+        (-1,-1,1,1) trasmette i bit di dati (1,0).
+        Un secondo trasmettitore CDMA, con
+        codice (-1,1,-1,1) trasmette i bit (0,1).
+        Qual è il segmento totale
+        trasmesso sul canale?</p>
+      <div>
+        <label>Codice CDMA 1</label>
+        <input id="codicecdma1" type="text"> dati <input id="daticdma1" type="text">
+      </div>
+      <div>
+        <label>Codice CDMA 2</label>
+        <input id="codicecdma2" type="text"> dati <input id="daticdma2" type="text">
+      </div>
+      <div>
+        <label>segmento trasmesso</label>
+        <input id="cdma" type="text" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
       <p>Un nodo su Ethernet a v = 10
         Mbit/s, dopo aver subito
         molteplici collisioni, estrae il
@@ -65,6 +85,72 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
       <div>
         <label>tempo per ritrasmettere (µs)</label>
         <input id="t5" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Un host A invia 2 segmenti TCP di seguito
+        ad un host B. Il primo ha numero di
+        sequenza n1 = 16 e il secondo n2 = 80.
+        Quanti byte di dati vengono trasportati dal
+        primo segmento?</p>
+      <div>
+        <label>n1</label>
+        <input id="n1" type="number">
+      </div>
+      <div>
+        <label>n2</label>
+        <input id="n2" type="number">
+      </div>
+      <div>
+        <label>byte trasportati dal primo segmento</label>
+        <input id="n1n2" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>In base allo standard Ethernet, dopo
+        che si è verificata la terza collisione,
+        qual è la probabilità di ritrasmettere
+        dopo k = 8 (tempi di trasmissione di
+        512 bit)?</p>
+      <div>
+        <label>numero collisione</label>
+        <input id="ncollisione" type="number" value="3">
+      </div>
+      <div>
+        <label>k</label>
+        <input id="k" type="number">
+      </div>
+      <div>
+        <label>probabilità di trasmettere</label>
+        <input id="pk" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si supponga che il
+        collegamento tra 2 router
+        abbia un MTU = 800 e di
+        dover trasferire un
+        datagramma IP di dimensione
+        D = 1630. Quale è il valore
+        inserito nel campo
+        spiazzamento (offset) del
+        terzo frammento?
+        </p>
+      <div>
+        <label>MTU</label>
+        <input id="MTU" type="number">
+      </div>
+      <div>
+        <label>D</label>
+        <input id="D" type="" readonly value="non serve">
+      </div>
+      <div>
+        <label>n frammento</label>
+        <input id="nfram" type="number" value="3">
+      </div>
+      <div>
+        <label>offset</label>
+        <input id="offset" type="number" readonly>
       </div>
     </div>
   </body>
