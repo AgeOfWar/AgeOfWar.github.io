@@ -241,6 +241,11 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
       </div>
     </div>
     <div style="border: 1px solid black;">
+      <p>Si consideri il trasferimento di un file di grandi dimensioni di L bytes dall'host A all'host B.<br>
+        Si assuma di avere un Maximum Segment Size MSS = 831 bytes.
+        Quale è il massimo valore di L tale che i numeri di sequenza TCP non siano esauriti ? (Il campo numero di sequenza TCP e' di 4 bytes.<br><br>2^(4*8) = 4294967296</p>
+    </div>
+    <div style="border: 1px solid black;">
       <p>In una rete Ethernet a 10 Mbit/s, il ritardo di propagazione tra due nodi A e B,
         espresso in tempi di bit, è pari a RTT = 621. Nel caso peggiore, dopo quanto tempo
         (espresso in tempi di bit), dopo aver cominciato a trasmettere, il nodo A si accorge
@@ -336,5 +341,89 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         <input id="senzaCRC" type="number" readonly>
       </div>
     </div>
+    <div style="border: 1px solid black;">
+      <p>Sia dato un datagramma IPv4 contenente i seguenti valori (gia rappresentati come interi senza segno a 16 bit):<br>
+      10100001000, 1110111000, 1010100111000, 110101011000<br>
+      Calcolare il valore di checksum da inserire nell'apposito campo del datagramma.
+      </p>
+      <div>
+        <label>numero bit</label>
+        <input id="checksumbit" type="number" value="16">
+      </div>
+      <div>
+        <label>valori</label>
+        <input id="checksumvalori" type="text" style="width: 400px;">
+      </div>
+      <div>
+        <label>checksum</label>
+        <input id="checksum" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Un ricevitore CDMA, con codice (1,-1,1,-1), riceve dal dal canale un segnale di ampiezza (1,-1,-1,-3,-1,1,1,3), dove il valore più a sinistra (1) è quello ricevuto per primo. Quali bit di dati (in ordine di arrivo) vengono ottenuti dalla decodifica?</p>
+      <div>
+        <label>codice CDMA</label>
+        <input id="CDMAc" type="text">
+      </div>
+      <div>
+        <label>segnale</label>
+        <input id="CDMAsegnale" type="text">
+      </div>
+      <div>
+        <label>decodifica</label>
+        <input id="CDMAdec" type="text" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si consideri lo scenario di rete mostrato in figura, dove i numeri segnati accanto ai collegamenti ne indicano la velocità
+        in Mbit/s. Si supponga inoltre che il server stia comunicando contemporaneamente con tutti i client. Qual è il massimo
+        throughput (in Mbit/s) tra il server e ciascun client?</p>
+      <div>
+        <label>velocità server - router (Mbit/s)</label>
+        <input id="velocita1" type="number"><br>
+      </div>
+      <div>
+        <label>velocità router - router (Mbit/s)</label>
+        <input id="velocita2" type="number"><br>
+      </div>
+      <div>
+        <label>velocità router - client (Mbit/s)</label>
+        <input id="velocita3" type="number"><br>
+      </div>
+      <div>
+        <label>throughput contemporaneo massimo</label>
+        <input id="throughputcm" type="number" readonly>
+      </div>
+      <div>
+        <label>dimensioni file (MBytes)</label>
+        <input id="filedim" type="number"><br>
+      </div>
+      <div>
+        <label>tempo trasferimento file (secondi)</label>
+        <input id="ttrasfile" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Frame H1 -> AP:<br>
+        MAC trasmettitore: H1<br>
+        MAC ricevitore: AP<br>
+        MAC destinazione: R1<br>
+        <br>
+        Frame AP -> R1:<br>
+        MAC trasmettitore: H1<br>
+        MAC ricevitore: R1<br>
+        <br>
+        <br>
+        Frame R1 -> AP:<br>
+        MAC trasmettitore: R1<br>
+        MAC ricevitore: AP<br>
+        <br>
+        Frame AP -> H1:<br>
+        MAC trasmettitore: AP<br>
+        MAC ricevitore: H1<br>
+        MAC sorgente: R1<br>
+      </p>
+    </div>
   </body>
 </html>
+

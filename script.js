@@ -53,7 +53,6 @@ onDocumentReady(function() {
             if (i != suddivisione.value - 1) result.push(document.createElement("br"))
         }
         sottoreti.replaceChildren(...result)
-
     }
 
     //
@@ -268,6 +267,71 @@ onDocumentReady(function() {
         senzaCRC.value = crc.substring(0, crc.length - G.value.toString().length + 1)
     }
 
+    //
+
+    let checksumvalori = document.getElementById("checksumvalori")
+    let checksumbit = document.getElementById("checksumbit")
+    let checksum = document.getElementById("checksum")
+
+    checksumvalori.oninput = () => calcola_checksum()
+    checksumbit.oninput = () => calcola_checksum()
+
+    function calcola_checksum() {
+        if (!checksumvalori.value || !checksumbit.value) return
+        checksum.value = (~checksumvalori.value.trim().split(/, */).map(n => parseInt(n, 2)).reduce((a, b) => a + b, 0) >>> 0).toString(2).substring(32 - checksumbit.value)
+    }
+
+    //
+
+    let CDMAc = document.getElementById("CDMAc")
+    let CDMAsegnale = document.getElementById("CDMAsegnale")
+    let CDMAdec = document.getElementById("CDMAdec")
+
+    CDMAc.oninput = () => calcola_CDMAdec()
+    CDMAsegnale.oninput = () => calcola_CDMAdec()
+
+    function calcola_CDMAdec() {
+        if (!CDMAc.value || !CDMAsegnale.value) return
+        let codice = CDMAc.value.replace(/^\(|\)$/, "").split(/, */).map(b => parseInt(b))
+        let dati = CDMAsegnale.value.replace(/^\(|\)$/, "").split(/, */).map(b => parseInt(b))
+        let moltiplicati = []
+        for (let i = 0; i < dati.length; i++) {
+            moltiplicati.push(dati[i] * codice[i % codice.length])
+        }
+        let res = []
+        for (let i = 0; i < moltiplicati.length / codice.length; i++) {
+            let somma = 0
+            for (let j = 0; j < codice.length; j++) {
+                somma += moltiplicati[i * codice.length + j]
+            }
+            res.push(somma)
+        }
+        CDMAdec.value = "(" + res.map(x => x / Math.abs(x)).join(",") + ")"
+    }
+
+    //
+
+    let velocita1 = document.getElementById("velocita1")
+    let velocita2 = document.getElementById("velocita2")
+    let velocita3 = document.getElementById("velocita3")
+    let throughputcm = document.getElementById("throughputcm")
+    let filedim = document.getElementById("filedim")
+    let ttrasfile = document.getElementById("ttrasfile")
+
+    velocita1.oninput = () => calcola_throughputcm()
+    velocita2.oninput = () => calcola_throughputcm()
+    velocita3.oninput = () => calcola_throughputcm()
+    filedim.oninput = () => calcola_throughputcm()
+
+    function calcola_throughputcm() {
+        if (!velocita1.value || !velocita2.value || !velocita3.value) return
+        let v1 = velocita1.value
+        let v2 = velocita2.value
+        let v3 = velocita3.value
+        throughputcm.value = Math.min(v1/6, v2/3, v3)
+        if (!filedim.value) return
+        ttrasfile.value = filedim.value * 8 / throughputcm.value
+    }
 })
 
 function iptoint(ip) {
