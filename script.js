@@ -185,9 +185,9 @@ onDocumentReady(function() {
 
     function calcola_hdrtransf() {
         if (!hdrL.value || !hdrMSS.value || !hdr.value || !hdrS.value) return
-        let pacchetti = hdrL.value * Math.pow(2, 20) / hdrMSS.value
+        let pacchetti = Math.ceil(hdrL.value * Math.pow(2, 20) / hdrMSS.value)
         let ltot = (pacchetti * hdr.value) + hdrL.value * Math.pow(2, 20)
-        hdrtransf.value = ltot * 8 / (hdrS.value * 1000000)
+        hdrtransf.value = ltot * 8 / (hdrS.value * Math.pow(2, 20))
     }
 
     //
