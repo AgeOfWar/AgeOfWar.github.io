@@ -49,7 +49,7 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         l'intestazione TCP occupi 24 bytes.
         Quanti segmenti vengono inviati
         dall'host A per trasferire tutto il
-        file?</p>
+        file? L*2^20/MSS</p>
       <div>
         <label>L (MBytes)</label>
         <input id="L" type="number">
@@ -90,7 +90,7 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         valore K = 10. Dopo quanto
         tempo, in microsecondi,
         proverà a ritrasmettere sul
-        canale?</p>
+        canale? (512K + 96) / v</p>
       <div>
         <label>v (MBit/s)</label>
         <input id="v" type="number">
@@ -109,7 +109,7 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         ad un host B. Il primo ha numero di
         sequenza n1 = 16 e il secondo n2 = 80.
         Quanti byte di dati vengono trasportati dal
-        primo segmento?</p>
+        primo segmento? n2 - n1</p>
       <div>
         <label>n1</label>
         <input id="n1" type="number">
@@ -151,7 +151,7 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         D = 1630. Quale è il valore
         inserito nel campo
         spiazzamento (offset) del
-        terzo frammento?
+        terzo frammento? (MTU - 20)(n - 1) / 8
         </p>
       <div>
         <label>MTU</label>
@@ -204,7 +204,7 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         TCP+IP+Ethernet occupi hdr= 66
         bytes. Quanti secondi ci vogliono
         per trasferire tutto il file su un
-        collegamento a S = 80 Mbps?</p>
+        collegamento a S = 80 Mbps? ((ceil(2^20L/MSS)*hdr + 2^20L) * 8) / 2^20S</p>
       <div>
         <label>L (MBytes)</label>
         <input id="hdrL" type="number">
@@ -235,10 +235,10 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
         MSS ogni RTT ricevuto.<br>
         Qual è il throughput
         medio dall’inizio fino al
-        tempo 5 RTTs? <b>3</b><br>
+        tempo 5 RTTs? (RTTs + 1) / 2 = <b>3</b><br>
         Quanti RTT ci vogliono
         per incrementare cwnd da 3
-        MSS a 7 MSS? <b>7 - 3 = 4</b></p>
+        MSS a 7 MSS? 7 - 3 = <b>4</b></p>
       <div>
         <label>RTTs</label>
         <input id="RTTs" type="number">
@@ -302,7 +302,7 @@ sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 so
           <input id="tdistcs" type="number" readonly>
         </div>
         <div>
-          <label>tempo di distribuzione <em>perr to peer</em> (secondi)</label>
+          <label>tempo di distribuzione <em>peer to peer</em> (secondi)</label>
           <input id="tdistpp" type="number" readonly>
         </div>
     </div>
