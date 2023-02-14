@@ -335,18 +335,19 @@ onDocumentReady(function() {
 
     //
 
-    let sstresht = document.getElementById("ssthresht")
-    let sstresh = document.getElementById("ssthresh")
+    let ssthresht = document.getElementById("ssthresht")
+    let ssthresh = document.getElementById("ssthresh")
 
-    sstresht.oninput = () => calcola_sstresh()
+    ssthresht.oninput = () => calcola_sstresh()
 
     function calcola_sstresh() {
-        if (!sstresht.value) return
+        if (!ssthresht.value) return
         let v = 0
-        for (let i = 0; v < sstresht.value; i++) {
+        let i
+        for (i = 0; v < ssthresht.value; i++) {
             v += Math.pow(2, i)
         }
-        sstresh.value = v
+        ssthresh.value = i
     }
 })
 
