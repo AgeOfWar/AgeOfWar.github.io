@@ -332,6 +332,22 @@ onDocumentReady(function() {
         if (!filedim.value) return
         ttrasfile.value = filedim.value * 8 / throughputcm.value
     }
+
+    //
+
+    let sstresht = document.getElementById("ssthresht")
+    let sstresh = document.getElementById("ssthresh")
+
+    sstresht.oninput = () => calcola_sstresh()
+
+    function calcola_sstresh() {
+        if (!sstresht.value) return
+        let v = 0
+        for (let i = 0; v < sstresht.value; i++) {
+            v += Math.pow(2, i)
+        }
+        sstresh.value = v
+    }
 })
 
 function iptoint(ip) {
