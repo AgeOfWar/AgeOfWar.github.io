@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <title>Blockchain Consensus</title>
+</head>
+<body>
+    <main>
+        <div id="graph">
+            <div id="overlay">
+                <p>Time: <span id="tickCount"></span></p>
+                <p>Nodes: <span id="nodeCount"></span></p>
+                <p>Degree of Connectivity: <span id="degreeCount"></span></p>
+                <p>Network Latency: <span id="latencyValue"></span></p>
+                <p>Height: <span id="height"></span></p>
+                <p>Aligned nodes: <span id="alignedPercentage"></span></p>
+            </div>
+            <div id="chain-panel">
+                <div class="chain-title">Blockchain</div>
+                <div id="major-chain"></div>
+                <div class="chain-title">Selected node</div>
+                <div id="node-chain">(hover a node)</div>
+            </div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
