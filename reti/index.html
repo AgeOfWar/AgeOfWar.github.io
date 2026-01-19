@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AgeOfWar - Esame Reti I</title>
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <style>
+      div {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="border: 1px solid black;">
+      <p>Con riferimento all’indirizzamento IP di
+         tipo classless (senza classi) si consideri
+         l’arco di indirizzi IP da 130.192.156.0 a 130.192.157.255.<br>
+         a) Scrivere sia in notazione  slash il blocco CIDR più piccolo in grado di contenere tale arco<br>
+         b) Suddividere l’arco di indirizzi in 8 sottoreti (che chiameremo nell’ordine sub1, sub2, ...,
+sub8) di uguale dimensione. Scrivere in notazione slash gli indirizzi delle 8 sottoreti ottenute</p>
+      <div>
+        <label>Range IP</label>
+        <input id="ip1" type="text"> - <input id="ip2" type="text">
+      </div>
+      <div>
+        <label>Blocco CID più piccolo</label>
+        <input id="blocco" type="text" readonly>
+      </div>
+      <div>
+        <label>suddivisione in sottoreti</label>
+        <input id="suddivisione" type="number">
+      </div>
+      <div id="sottoreti"></div>
+      <div>
+        <label>host indirizzabili</label>
+        <input id="hostind" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si consideri il trasferimento di un
+        file di grandi dimensioni L = 32
+        MBytes dall'host A all'host B. Si
+        assuma di avere un Maximum
+        Segment Size MSS = 1120 bytes.
+        Si supponga inoltre che
+        l'intestazione TCP occupi 24 bytes.
+        Quanti segmenti vengono inviati
+        dall'host A per trasferire tutto il
+        file? L*2^20/MSS</p>
+      <div>
+        <label>L (MBytes)</label>
+        <input id="L" type="number">
+      </div>
+      <div>
+        <label>MSS (bytes)</label>
+        <input id="MSS" type="number">
+      </div>
+      <div>
+        <label>numero segmenti inviati</label>
+        <input id="n_seg" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Un trasmettitore CDMA con codice
+        (-1,-1,1,1) trasmette i bit di dati (1,0).
+        Un secondo trasmettitore CDMA, con
+        codice (-1,1,-1,1) trasmette i bit (0,1).
+        Qual è il segmento totale
+        trasmesso sul canale?</p>
+      <div>
+        <label>Codice CDMA 1</label>
+        <input id="codicecdma1" type="text"> dati <input id="daticdma1" type="text">
+      </div>
+      <div>
+        <label>Codice CDMA 2</label>
+        <input id="codicecdma2" type="text"> dati <input id="daticdma2" type="text">
+      </div>
+      <div>
+        <label>segmento trasmesso</label>
+        <input id="cdma" type="text" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Un nodo su Ethernet a v = 10
+        Mbit/s, dopo aver subito
+        molteplici collisioni, estrae il
+        valore K = 10. Dopo quanto
+        tempo, in microsecondi,
+        proverà a ritrasmettere sul
+        canale? (512K + 96) / v</p>
+      <div>
+        <label>v (MBit/s)</label>
+        <input id="v" type="number">
+      </div>
+      <div>
+        <label>K</label>
+        <input id="K" type="number">
+      </div>
+      <div>
+        <label>tempo per ritrasmettere (µs)</label>
+        <input id="t5" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Un host A invia 2 segmenti TCP di seguito
+        ad un host B. Il primo ha numero di
+        sequenza n1 = 16 e il secondo n2 = 80.
+        Quanti byte di dati vengono trasportati dal
+        primo segmento? n2 - n1</p>
+      <div>
+        <label>n1</label>
+        <input id="n1" type="number">
+      </div>
+      <div>
+        <label>n2</label>
+        <input id="n2" type="number">
+      </div>
+      <div>
+        <label>byte trasportati dal primo segmento</label>
+        <input id="n1n2" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>In base allo standard Ethernet, dopo
+        che si è verificata la terza collisione,
+        qual è la probabilità di ritrasmettere
+        dopo k = 8 (tempi di trasmissione di
+        512 bit)?</p>
+      <div>
+        <label>numero collisione</label>
+        <input id="ncollisione" type="number" value="3">
+      </div>
+      <div>
+        <label>k</label>
+        <input id="k" type="number">
+      </div>
+      <div>
+        <label>probabilità di trasmettere</label>
+        <input id="pk" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si supponga che il
+        collegamento tra 2 router
+        abbia un MTU = 800 e di
+        dover trasferire un
+        datagramma IP di dimensione
+        D = 1630. Quale è il valore
+        inserito nel campo
+        spiazzamento (offset) del
+        terzo frammento? (MTU - 20)(n - 1) / 8
+        </p>
+      <div>
+        <label>MTU</label>
+        <input id="MTU" type="number">
+      </div>
+      <div>
+        <label>D</label>
+        <input id="D" type="" readonly value="non serve">
+      </div>
+      <div>
+        <label>n frammento</label>
+        <input id="nfram" type="number" value="3">
+      </div>
+      <div>
+        <label>offset</label>
+        <input id="offset" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Sia data una rete con N = 2 nodi che
+        comunicano usando Slotted Aloha. Ogni
+        nodo ha probabilità p = 0.97 di
+        trasmettere uno slot.
+        Calcolare la probabilità che un nodo
+        qualsiasi/specifico abbia successo.</p>
+      <div>
+        <label>N</label>
+        <input id="alohaN" type="number">
+      </div>
+      <div>
+        <label>p</label>
+        <input id="alohap" type="number">
+      </div>
+      <div>
+        <label>probabilità che un nodo <em>specifico</em> abbia successo</label>
+        <input id="alohapspecific" type="number" readonly>
+      </div>
+      <div>
+        <label>probabilità che un nodo <em>qualsiasi</em> abbia successo</label>
+        <input id="alohapq" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si consideri il trasferimento di un file
+        di grandi dimensioni L = 50 MBytes
+        dall'host A all'host B. Si assuma di
+        avere un Maximum Segment Size
+        MSS = 262 bytes. Si supponga
+        inoltre che l'intestazione
+        TCP+IP+Ethernet occupi hdr= 66
+        bytes. Quanti secondi ci vogliono
+        per trasferire tutto il file su un
+        collegamento a S = 80 Mbps? ((ceil(2^20L/MSS)*hdr + 2^20L) * 8) / 2^20S</p>
+      <div>
+        <label>L (MBytes)</label>
+        <input id="hdrL" type="number">
+      </div>
+      <div>
+        <label>MSS (bytes)</label>
+        <input id="hdrMSS" type="number">
+      </div>
+      <div>
+        <label>hdr (bytes)</label>
+        <input id="hdr" type="number">
+      </div>
+      <div>
+        <label>S (Mbps)</label>
+        <input id="hdrS" type="number">
+      </div>
+      <div>
+        <label>tempo trasferimento (secondi)</label>
+        <input id="hdrtransf" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si consideri l’invio di un file di
+        grandi dimensioni ad un host
+        su una connessione TCP con
+        cwnd = 1 come valore iniziale
+        e viene incrementato di 1
+        MSS ogni RTT ricevuto.<br>
+        Qual è il throughput
+        medio dall’inizio fino al
+        tempo 5 RTTs? (RTTs + 1) / 2 = <b>3</b><br>
+        Quanti RTT ci vogliono
+        per incrementare cwnd da 3
+        MSS a 7 MSS? 7 - 3 = <b>4</b></p>
+      <div>
+        <label>RTTs</label>
+        <input id="RTTs" type="number">
+      </div>
+      <div>
+        <label>throughput medio</label>
+        <input id="RTTsthrogmedio" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si consideri il trasferimento di un file di grandi dimensioni di L bytes dall'host A all'host B.<br>
+        Si assuma di avere un Maximum Segment Size MSS = 831 bytes.
+        Quale è il massimo valore di L tale che i numeri di sequenza TCP non siano esauriti ? (Il campo numero di sequenza TCP e' di 4 bytes.<br><br>2^(4*8) = 4294967296</p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>In una rete Ethernet a 10 Mbit/s, il ritardo di propagazione tra due nodi A e B,
+        espresso in tempi di bit, è pari a RTT = 621. Nel caso peggiore, dopo quanto tempo
+        (espresso in tempi di bit), dopo aver cominciato a trasmettere, il nodo A si accorge
+        di avere colliso col nodo B?</p>
+      <div>
+        <label>RTT (tempi di bit)</label>
+        <input id="RTT12" type="number">
+      </div>
+      <div>
+        <label>caso peggiore (tempi di bit)</label>
+        <input id="RTTcasopeggiore" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si supponga di voler distribuire un file di F
+        = 99 GBytes a N = 73 peers. Il server su
+        cui risiede il file ha una capacità di upload
+        us = 396 Mbps, e ogni peer ha una
+        capacita di download di = 99 Mbps e una
+        capacità di upload ui = 12,375 Mbps.<br>
+        Calcolare il tempo totale di distribuzione
+        del file a 73 peers utilizzando una
+        applicazione client-server/peer to peer.</p>
+        <div>
+          <label>F (Gbytes)</label>
+          <input id="F" type="number">
+        </div>
+        <div>
+          <label>N</label>
+          <input id="peers" type="number">
+        </div>
+        <div>
+          <label>us (Mbps)</label>
+          <input id="us" type="number">
+        </div>
+        <div>
+          <label>di (Mbps)</label>
+          <input id="di" type="number">
+        </div>
+        <div>
+          <label>ui (Mbps)</label>
+          <input id="ui" type="number">
+        </div>
+        <div>
+          <label>tempo di distribuzione <em>client-server</em> (secondi)</label>
+          <input id="tdistcs" type="number" readonly>
+        </div>
+        <div>
+          <label>tempo di distribuzione <em>peer to peer</em> (secondi)</label>
+          <input id="tdistpp" type="number" readonly>
+        </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si consideri il protocollo GBN. Si
+        supponga che o spazio dei numeri di
+        sequenza dei segmenti sia L = 127.
+        Quale è la massima dimensione
+        della finestra del mittente (in
+        numero di segmenti) per evitare che
+        si presenti il problema della
+        sovrapposizione dei segmenti lato
+        ricevente?</p>
+        <div>
+          <label>L</label>
+          <input id="L16" type="number">
+        </div>
+        <div>
+          <label>massima dimensione finestra</label>
+          <input id="es16" type="number" readonly>
+        </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Un nodo riceve la sequenza di bit 1001110110 protetta da un codice CRC con generatore G=10010. Quali bit di dati vengono consegnati al livello superiore?</p>
+      <div>
+        <label>sequenza</label>
+        <input id="CRCseq" type="number">
+      </div>
+      <div>
+        <label>G</label>
+        <input id="G" type="number">
+      </div>
+      <div>
+        <label>dati livello superiore</label>
+        <input id="senzaCRC" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Sia dato un datagramma IPv4 contenente i seguenti valori (gia rappresentati come interi senza segno a 16 bit):<br>
+      10100001000, 1110111000, 1010100111000, 110101011000<br>
+      Calcolare il valore di checksum da inserire nell'apposito campo del datagramma.
+      </p>
+      <div>
+        <label>numero bit</label>
+        <input id="checksumbit" type="number" value="16">
+      </div>
+      <div>
+        <label>valori</label>
+        <input id="checksumvalori" type="text" style="width: 400px;">
+      </div>
+      <div>
+        <label>checksum</label>
+        <input id="checksum" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Un ricevitore CDMA, con codice (1,-1,1,-1), riceve dal dal canale un segnale di ampiezza (1,-1,-1,-3,-1,1,1,3), dove il valore più a sinistra (1) è quello ricevuto per primo. Quali bit di dati (in ordine di arrivo) vengono ottenuti dalla decodifica?</p>
+      <div>
+        <label>codice CDMA</label>
+        <input id="CDMAc" type="text">
+      </div>
+      <div>
+        <label>segnale</label>
+        <input id="CDMAsegnale" type="text">
+      </div>
+      <div>
+        <label>decodifica</label>
+        <input id="CDMAdec" type="text" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si consideri lo scenario di rete mostrato in figura, dove i numeri segnati accanto ai collegamenti ne indicano la velocità
+        in Mbit/s. Si supponga inoltre che il server stia comunicando contemporaneamente con tutti i client. Qual è il massimo
+        throughput (in Mbit/s) tra il server e ciascun client?</p>
+      <div>
+        <label>velocità server - router (Mbit/s)</label>
+        <input id="velocita1" type="number"><br>
+      </div>
+      <div>
+        <label>velocità router - router (Mbit/s)</label>
+        <input id="velocita2" type="number"><br>
+      </div>
+      <div>
+        <label>velocità router - client (Mbit/s)</label>
+        <input id="velocita3" type="number"><br>
+      </div>
+      <div>
+        <label>throughput contemporaneo massimo</label>
+        <input id="throughputcm" type="number" readonly>
+      </div>
+      <div>
+        <label>dimensioni file (MBytes)</label>
+        <input id="filedim" type="number"><br>
+      </div>
+      <div>
+        <label>tempo trasferimento file (secondi)</label>
+        <input id="ttrasfile" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si consideri il grafico in figura e si supponga che TCP Reno sia utilizzato per il controllo di congestione.<br>
+        In quale transmission round viene trasmesso il 18mo segmento ?<br></p>
+      <div>
+        <label>segmento</label>
+        <input id="ssthresht" type="number"><br>
+      </div>
+      <div>
+        <label>trasmission round</label>
+        <input id="ssthresh" type="number" readonly>
+      </div>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Frame H1 -> AP:<br>
+        MAC trasmettitore: H1<br>
+        MAC ricevitore: AP<br>
+        MAC destinazione: R1<br>
+        <br>
+        Frame AP -> R1:<br>
+        MAC trasmettitore: H1<br>
+        MAC ricevitore: R1<br>
+        <br>
+        <br>
+        Frame R1 -> AP:<br>
+        MAC trasmettitore: R1<br>
+        MAC ricevitore: H1<br>
+        <br>
+        Frame AP -> H1:<br>
+        MAC trasmettitore: AP<br>
+        MAC ricevitore: H1<br>
+        MAC sorgente: R1<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Si associno correttamente gli scenari di rete indicati nella colonna di sinistra con le modalità operative riportate nella colonna di destra:<br><br>
+      collegamento Bluetooth telefono-auricolare: hop singolo, senza infrastruttura<br>
+      VANET (vehicular ad-hoc network): hop multipli, senza infrastruttura<br>
+      collegamento telefono-base station: hop singolo, con infrastruttura<br>
+      rete WiFi mesh domestica: hop multipli, con infrastruttura<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Un protocollo di comunicazione:<br><br>
+        Definisce le regole che i nodi mittente e destinatario devono seguire<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Quali di queste affermazioni che riguardano il protocollo ARP sono vere?<br>
+        <br>
+        Le entry obsolete di una tabella ARP vengono rimosse automaticamente<br>
+        ARP sta per Address Resolution Protocol<br>
+        ARP viene utilizzato dai router, ma non dagli switch<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Quali di queste affermazioni che riguardano il canale wireless sono vere?<br>
+        <br>
+        Il rapporto segnale-rumore (SNR) è un rapporto di potenze, e si misura in dB<br>
+        Nello spazio libero l'esponente di path loss (attenuazione del segnale) é pari a 2<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Rispetto ai protocolli a divisione del canale (es. TDM), quali sono i vantaggi di un protocollo ad accesso casuale (es. Ethernet)?<br>
+        <br>
+        Maggiori prestazioni a basso carico<br>
+        Prestazioni garantite a basso carico<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Si consideri una connessione TCP tra un host A e un Host B. Si supponga che i segmenti TCP che viaggiano da A a B abbiano
+        numero di porta sorgente 56266 e numero di porta di destinazione 44730. Quali sono i numeri di porta sorgente S e destinazione
+        D dei segmenti che viaggiano da B verso A ?<br>
+        <br>
+        D 56266, S 44730<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Quali di queste affermazioni sono vere quando di parla di Collision Avoidance e Collision Detection ?<br>
+        <br>
+        La Collision Avoidance evita che avvengano collisioni sul canale<br>
+        Entrambe fanno uso del rilevamento della portante (carrier sensing)<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Si consideri un client di posta elettronica (ad esempio, Microsoft Outlook o Thunderbird) che vuole inviare un
+        messaggio di posta elettronica tramite il proprio mail server mail.google.com.
+        Quali protocolli di trasporto e applicativo oltre sono necessari in questo scenario ?<br>
+        <br>
+        TCP<br>
+        UDP<br>
+        DNS<br>
+        SMTP<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Si consideri un client HTTP che vuole ottenere un documento Web con un dato URL. L'indirizzo IP del server HTTP e s
+        inizialmente sconosciuto.<br>
+        Quali protocolli di trasporto e applicativo oltre a HTTP sono necessari in questo scenario ?<br>
+        <br>
+        UDP<br>
+        DNS<br>
+        TCP<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Si consideri client FTP che vuole ottenere un file da un server di cui conosce solo il nome simbolico ma non l'indirizzo IP.
+        Quali protocolli di trasporto e applicativo oltre a FTP sono necessari in questo scenario.<br>
+        <br>
+        DNS<br>
+        TCP<br>
+        UDP<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Si consideri un host che desidera connettersi alla rete locale del Dipartimento di Informatica.<br>
+        Quali protocolli di trasporto e applicativo oltre DHCP sono necessari in questo scenario ?<br>
+        <br>
+        UDP<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Si consideri il protocollo GBN con una finestra mittente di 3 elementi e numeri di sequenza nell'intervallo [0, 10231].
+        Si supponga che all'istante t il prossimo segmento in ordine che il ricevente si aspetta ha numero di sequenza k =
+        15. Si assuma inoltre che il mezzo non riordini i messaggi.<br>
+        Quali sono i possibili insiemi di numeri di sequenza nella finestra del mittente all'istante t ?<br>
+        Selezionare i valori corretti tra i seguenti:<br>
+        <br>
+        [13,14,15]<br>
+        [14,15,16]<br>
+        [15,16,17]<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Quali di queste affermazioni che riguardano switch e router sono vere?<br>
+        <br>
+        Realizzano entrambi la funzione di inoltro (forwarding) dei pacchetti<br>
+        Gli switch commutano pacchetti più velocemente dei router<br>
+        I router isolano i domini di broadcast a livello 2, gli switch no<br>
+        Gli switch possono realizzare solo topologie ad albero <br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Quale delle seguenti caratteristiche NON è influenzata dalla topologia di una rete?<br>
+        <br>
+        Sicurezza<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Quali di queste affermazioni sono vere?<br>
+        <br>
+        <b>(MODIFICATA)</b> Il pacchetto RTS è inviato in broadcast<br>
+        In 802.11, l'uso dei pacchetti RTS/CTS è opzionale<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Un esempio di applicazione con architettura peer to peer é emule
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Una linea ADSL:<br>
+        <br>
+        Utilizza bande diverse in upload e download<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Quale dei seguenti è un protocollo Internet a livello applicativo?<br>
+        <br>
+        DHCP<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Che vantaggi hanno i protocolli ad accesso multiplo a rotazione, rispetto ai protocolli ad accesso casuale?<br>
+        <br>
+        Non generano collisioni<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Si associno correttamente le generazioni di reti cellulari indicati nella colonna di sinistra con i loro acronimi alternativi
+        riportati nella colonna di destra:<br>
+        <br>
+        2.5G EDGE<br>
+        3G UMTS<br>
+        4G LTE<br>
+        2G GSM<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Quali di queste affermazioni sono vere?<br>
+        <br>
+        <b>(FORSE)</b> Il Visitor Location Register (VLR) viene aggiornato quando il dispositivo di un utente abbonato viene acceso<br>
+        Nelle reti cellulari si utilizza la modalità di instradamento indiretta<br>
+        L'anchor MSC viene attraversato dal traffico diretto verso un utente che si sposta sotto un'altro MSC<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Nello scenario seguente, immaginate di inviare una richiesta http un'altra macchina da qualche parte sulla rete.
+        <br>
+        Link<br>
+        Trasporto<br>
+        Fisico<br>
+        Trasporto<br>
+        Rete<br>
+        1.  Applicazione<br>
+        2.  Trasporto<br>
+        3.  Rete<br>
+        4.  Link<br>
+        5.  Fisico<br>
+        6.  Fisico<br>
+        7.  Link<br>
+        8.  Fisico<br>
+        9.  Link<br>
+        10. Rete<br>
+        11. Fisico<br>
+        12. Link<br>
+        13. Rete<br>
+        14. Trasporto<br>
+        15. Applicazione<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>
+        Quali di queste affermazioni sono vere?<br>
+        <br>
+        <b>(FORSE)</b> Un handover può avvenire anche all'interno della stessa cella<br>
+        <b>(FORSE)</b> Un handover richiede di reinstradare il traffico verso un diverso commutatore MSC<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Per banda in una rete si intende:<br>
+        <br>
+        la quantità di informazioni trasferibili nell'unità di tempo.<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Associare ai seguenti servizi applicativi i relativi protocolli di trasporto:<br>
+        <br>
+        Assegnazione Dinamica degli Indirizzi IP: UDP<br>
+        Servizio di posta elettronica: TCP<br>
+        Distribuzione File: TCP<br>
+        Servizio web: TCP<br>
+      </p>
+    </div>
+    <div style="border: 1px solid black;">
+      <p>Che differenze ha Aloha puro (non slottizzato) rispetto alla versione slottizzata di Aloha?<br>
+        <br>
+        E' più semplice<br>
+      </p>
+    </div>
+  </body>
+</html>
